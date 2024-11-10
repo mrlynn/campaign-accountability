@@ -1,4 +1,10 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    experimental: {
+      appDir: true, // Ensure this is enabled for routing with `app` directory
+    },
+  };
+  
+  export default nextConfig;
+  
