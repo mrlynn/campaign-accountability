@@ -19,3 +19,36 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+/* Center align and style the dots below the slider */
+.slick-dots {
+  bottom: 20px;
+}
+.slick-dots li button:before {
+  font-size: 12px;
+  color: white;
+}
+.slick-dots li.slick-active button:before {
+  color: #f39c12; /* Change to your active color */
+}
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+  background: #ffffff; /* White color for inactive dots */
+  opacity: 0.6;
+}
+.swiper-pagination-bullet-active {
+  background: #000000; /* Black color for active dot */
+  opacity: 1;
+}
+
+/* Swiper Navigation Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff; /* White color for arrows */
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #000000; /* Black color for arrows on hover */
+}
