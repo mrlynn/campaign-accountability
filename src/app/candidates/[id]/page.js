@@ -4,13 +4,17 @@ import { notFound } from 'next/navigation';
 import CandidateProfileClient from './components/CandidateProfileClient';
 
 export async function generateStaticParams() {
-  // Fetch all candidate IDs from your API or database
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/candidates`);
-  const candidates = await response.json();
-
-  // Return an array of objects with `id` for each candidate
-  return candidates.map(candidate => ({ id: candidate._id.toString() }));
-}
+    if (process.env.NODE_ENV === 'production') {
+      // Return mock data or handle dynamic paths differently during build
+      return [{ id: 'mock-id' }]; // Replace with actual mock data or alternative approach
+    }
+  
+    // Fetch real data when not in production build
+    const res = await fetch(`${process.env.API_BASE_URL}/candidates`);
+    const candidates = await res.json();
+  
+    return candidates.map((candidate) => ({ id: candidate.id }));
+  }
 
 export default async function CandidateProfile({ params }) {
   const { id } = await params;

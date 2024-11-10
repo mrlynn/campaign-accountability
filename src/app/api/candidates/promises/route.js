@@ -1,7 +1,7 @@
-// src/app/api/promises/route.js
-import clientPromise from '../../../../lib/mongodb';
+// src/app/api/candidates/[id]/promises/route.js
+import clientPromise from '../../../../../lib/mongodb';
 
-export async function POST(request) {
+export async function POST(request, { params }) {
   const client = await clientPromise;
   const db = client.db('campaignAccountability');
 
